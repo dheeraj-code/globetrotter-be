@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:globetrotter
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  security:
+    filter:
+      order: 10
+  sql:
+    init:
+      mode: always
+      platform: h2
+      continue-on-error: true
+
+server:
+  port: ${PORT:8080}
+
+jwt:
+  secret: ${JWT_SECRET:your_default_secret_key_here_should_be_at_least_32_characters}
+  expiration: 3600000  # 1 hour in milliseconds
+
+logging:
+  level:
+    org.springframework.security: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE 
