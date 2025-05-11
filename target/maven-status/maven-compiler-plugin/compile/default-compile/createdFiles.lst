@@ -2,6 +2,7 @@ com/globetrotter/repository/CityRepository.class
 com/globetrotter/security/JwtTokenProvider.class
 com/globetrotter/repository/ChallengeRepository.class
 com/globetrotter/repository/QuizSessionRepository.class
+com/globetrotter/model/QuizQuestion.class
 com/globetrotter/controller/AuthController.class
 com/globetrotter/security/JwtAuthenticationFilter.class
 com/globetrotter/security/CustomUserDetailsService.class
@@ -23,6 +24,7 @@ com/globetrotter/service/CityService.class
 com/globetrotter/controller/ChallengeController.class
 com/globetrotter/config/SecurityConfig.class
 com/globetrotter/service/impl/CityServiceImpl.class
+com/globetrotter/repository/QuizQuestionRepository.class
 com/globetrotter/service/impl/ChallengeServiceImpl.class
 com/globetrotter/config/WebConfig.class
 com/globetrotter/controller/CityController.class

@@ -1,7 +1,9 @@
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/controller/CityController.java
+/Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/repository/QuizQuestionRepository.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/model/City.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/impl/UserServiceImpl.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/repository/QuizSessionRepository.java
+/Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/model/QuizQuestion.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/model/User.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/ChallengeService.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/impl/CityServiceImpl.java
