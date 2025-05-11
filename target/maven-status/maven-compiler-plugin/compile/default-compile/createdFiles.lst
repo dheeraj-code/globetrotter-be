@@ -22,12 +22,12 @@ com/globetrotter/model/Challenge.class
 com/globetrotter/service/QuizService.class
 com/globetrotter/GlobetrotterApplication.class
 com/globetrotter/service/CityService.class
+com/globetrotter/service/ChallengeServiceImpl.class
 com/globetrotter/controller/ChallengeController.class
 com/globetrotter/config/SecurityConfig.class
 com/globetrotter/config/DataSourceConfig.class
 com/globetrotter/service/impl/CityServiceImpl.class
 com/globetrotter/repository/QuizQuestionRepository.class
-com/globetrotter/service/impl/ChallengeServiceImpl.class
 com/globetrotter/config/WebConfig.class
 com/globetrotter/controller/CityController.class
 com/globetrotter/service/impl/UserServiceImpl.class

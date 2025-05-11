@@ -144,6 +144,68 @@ public class ChallengeController {
         return ResponseEntity.ok(result);
     }
 
+    @GetMapping("/{inviteLink}")
+    public ResponseEntity<?> getChallengeByLink(@PathVariable String inviteLink, Authentication authentication) {
+        try {
+            // Get the current user from authentication
+            String email = authentication.getName();
+            Optional<User> userOpt = userService.findByEmail(email);
+            
+            if (userOpt.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body(Map.of("message", "User not authenticated"));
+            }
+            
+            User currentUser = userOpt.get();
+            
+            // Find challenge by invite link
+            Challenge challenge = challengeService.getChallengeByInviteLink(inviteLink);
+            
+            if (challenge == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body(Map.of("message", "Challenge not found"));
+            }
+            
+            // Get challenge with full details
+            Challenge challengeDetails = challengeService.getChallengeWithDetails(challenge.getId());
+            
+            // Add additional properties for the response
+            Map<String, Object> response = new HashMap<>();
+            response.put("id", challengeDetails.getId());
+            response.put("inviterId", challengeDetails.getInviter().getId());
+            response.put("inviterUsername", challengeDetails.getInviter().getUsername());
+            response.put("inviterScore", challengeDetails.getInviterSession() != null ? 
+                    challengeDetails.getInviterSession().getScore() : null);
+            response.put("inviteeId", challengeDetails.getInvitee() != null ? 
+                    challengeDetails.getInvitee().getId() : null);
+            response.put("inviteeUsername", challengeDetails.getInvitee() != null ? 
+                    challengeDetails.getInvitee().getUsername() : null);
+            response.put("inviteeScore", challengeDetails.getInviteeSession() != null ? 
+                    challengeDetails.getInviteeSession().getScore() : null);
+            response.put("status", challengeDetails.getStatus());
+            response.put("inviteLink", challengeDetails.getInviteLink());
+            response.put("createdAt", challengeDetails.getCreatedAt());
+            
+            // Check if this is the user's own challenge
+            if (challengeDetails.getInviter().getId().equals(currentUser.getId())) {
+                response.put("isOwnChallenge", true);
+            }
+            
+            // Check if challenge is already accepted by the current user
+            if ("accepted".equals(challengeDetails.getStatus().toString()) && 
+                    challengeDetails.getInvitee() != null && 
+                    challengeDetails.getInvitee().getId().equals(currentUser.getId())) {
+                response.put("isAlreadyAccepted", true);
+            }
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("message", "Failed to get challenge details"));
+        }
+    }
+
     @GetMapping("/my-challenges")
     public ResponseEntity<List<Challenge>> getMyChallenges() {
         // Get the authenticated user

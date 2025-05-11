@@ -7,6 +7,9 @@ spring:
     type: org.springframework.jdbc.datasource.SimpleDriverDataSource
     hikari:
       maximum-pool-size: 1
+  devtools:
+    restart:
+      exclude: logs/**
   jpa:
     hibernate:
       ddl-auto: update
@@ -35,4 +38,6 @@ logging:
     org.springframework.security: INFO
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    com.zaxxer.hikari: OFF 
+    com.zaxxer.hikari: OFF
+
+

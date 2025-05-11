@@ -13,10 +13,10 @@
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/repository/ChallengeRepository.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/config/SecurityConfig.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/UserService.java
-/Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/impl/ChallengeServiceImpl.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/controller/QuizController.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/config/HikariExclusionConfig.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/model/QuizSession.java
+/Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/ChallengeServiceImpl.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/GlobetrotterApplication.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/QuizService.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/impl/QuizServiceImpl.java

@@ -13,11 +13,13 @@ public interface ChallengeService {
     
     Optional<Challenge> acceptChallenge(String inviteLink, User invitee, QuizSession inviteeSession);
     
-    Optional<Challenge> getChallengeByInviteLink(String inviteLink);
+    Challenge getChallengeByInviteLink(String inviteLink);
     
     Optional<Challenge> getChallengeById(Long id);
     
     List<Challenge> getChallengesByInviter(User inviter);
     
     List<Challenge> getChallengesByInvitee(User invitee);
+    
+    Challenge getChallengeWithDetails(Long challengeId);
 } 
