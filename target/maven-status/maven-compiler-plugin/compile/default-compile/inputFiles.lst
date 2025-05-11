@@ -15,6 +15,7 @@
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/UserService.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/impl/ChallengeServiceImpl.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/controller/QuizController.java
+/Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/config/HikariExclusionConfig.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/model/QuizSession.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/GlobetrotterApplication.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/QuizService.java
@@ -26,3 +27,4 @@
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/service/CityService.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/controller/ChallengeController.java
 /Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/security/JwtAuthenticationFilter.java
+/Users/adarshtripathi/globetrotter_java/src/main/java/com/globetrotter/config/DataSourceConfig.java
