@@ -1,13 +1,11 @@
 package com.globetrotter.service.impl;
 
-import com.globetrotter.model.City;
-import com.globetrotter.model.QuizQuestion;
-import com.globetrotter.model.QuizSession;
-import com.globetrotter.model.User;
+import com.globetrotter.model.*;
 import com.globetrotter.repository.QuizQuestionRepository;
 import com.globetrotter.repository.QuizSessionRepository;
 import com.globetrotter.repository.UserRepository;
 import com.globetrotter.service.CityService;
+import com.globetrotter.service.QuestionPoolService;
 import com.globetrotter.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,17 +23,19 @@ public class QuizServiceImpl implements QuizService {
     private final UserRepository userRepository;
     private final QuizQuestionRepository quizQuestionRepository;
     private final CityService cityService;
+    private final QuestionPoolService questionPoolService;
 
     @Autowired
     public QuizServiceImpl(
             QuizSessionRepository quizSessionRepository, 
             UserRepository userRepository,
             QuizQuestionRepository quizQuestionRepository,
-            CityService cityService) {
+            CityService cityService, QuestionPoolService questionPoolService) {
         this.quizSessionRepository = quizSessionRepository;
         this.userRepository = userRepository;
         this.quizQuestionRepository = quizQuestionRepository;
         this.cityService = cityService;
+        this.questionPoolService  = questionPoolService;
     }
 
     @Override
@@ -107,19 +107,20 @@ public class QuizServiceImpl implements QuizService {
         QuizSession session = sessionOpt.get();
         
         // Get a random city as the correct answer
-        City correctCity = cityService.getRandomCity();
-        String clue = cityService.getRandomClue(correctCity.getId());
+//        City correctCity = cityService.getRandomCity();
+//        String clue = cityService.getRandomClue(correctCity.getId());
+        QuestionPool questionPool = questionPoolService.getRandomQuestions();
         
         // Create 3 random options (excluding the correct city)
-        List<City> options = cityService.getRandomOptions(correctCity.getId(), 3);
+        List<City> options = cityService.getRandomOptions(questionPool.getCity().getId(), 3);
         
         // Create and save the quiz question
         QuizQuestion question = new QuizQuestion();
         question.setSession(session);
-        question.setCorrectCity(correctCity);
+        question.setCorrectCity(questionPool.getCity());
         
         // Add the correct city to the options
-        options.add(correctCity);
+        options.add(questionPool.getCity());
         
         // Add all options to the question
         for (City option : options) {
