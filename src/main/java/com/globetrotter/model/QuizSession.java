@@ -34,4 +34,6 @@ public class QuizSession {
     
     @Column
     private Integer score = 0;
+    @Column
+    private QuestionPool.DifficultyLevel currentLevel;
 } 
